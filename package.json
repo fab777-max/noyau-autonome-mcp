@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Read-only Cloudflare MCP/HTTPS sidecar for Noyau Autonome.",
   "scripts": {
+    "postinstall": "node build.mjs",
     "build": "node build.mjs",
     "dev": "npm run build && wrangler dev",
     "deploy": "wrangler deploy"
