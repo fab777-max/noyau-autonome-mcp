@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "noyau-autonome-mcp",
+  "main": "index.js",
+  "compatibility_date": "2026-08-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "BRIDGE_ALLOWED_ORIGINS": "https://noyau-autonome-v37.fabien98escoffier.chatgpt.site"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "BRIDGE_STORE",
+        "class_name": "BrainSnapshotStore"
+      }
+    ]
+  },
+  "exports": {
+    "BrainSnapshotStore": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  },
+  "observability": {
+    "enabled": true
+  }
+}
