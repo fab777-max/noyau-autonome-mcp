@@ -1,11 +1,12 @@
 {
   "name": "noyau-autonome-mcp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "type": "module",
   "description": "Read-only Cloudflare MCP/HTTPS sidecar for Noyau Autonome.",
   "scripts": {
-    "dev": "wrangler dev",
+    "build": "node build.mjs",
+    "dev": "npm run build && wrangler dev",
     "deploy": "wrangler deploy"
   },
   "dependencies": {
