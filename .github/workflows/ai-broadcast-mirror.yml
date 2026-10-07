@@ -1,0 +1,75 @@
+name: Mirror AI Broadcast
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch safe broadcast messages
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.request
+          topic = "noyau-ai-broadcast-c7f4a91d6e23"
+          url = f"https://ntfy.sh/{topic}/json?poll=1&since=12h"
+          try:
+              raw = urllib.request.urlopen(url, timeout=20).read().decode("utf-8", "replace")
+          except Exception:
+              raw = ""
+          blocked = re.compile(r"(suicid|detresse|réfugi|refugi|guerre|handicap|depress|asile|visa|sans.?abri|urgence|fuir|mineur|underage|logement.*contre|heberg.*contre|héberg.*contre|sex.*contre|intim.*contre)", re.I)
+          fresh = []
+          for line in raw.splitlines():
+              try:
+                  obj = json.loads(line)
+              except Exception:
+                  continue
+              if obj.get("event") != "message":
+                  continue
+              msg = str(obj.get("message") or "")
+              if not msg.startswith("[NOYAU-AI-BROADCAST]\n"):
+                  continue
+              msg = msg.split("\n",1)[1].strip()
+              if not msg or blocked.search(msg):
+                  continue
+              fresh.append({
+                  "id": obj.get("id"),
+                  "time": obj.get("time"),
+                  "message": msg,
+                  "source": "ntfy"
+              })
+
+          path = "AI-BROADCAST-FEED.json"
+          existing = []
+          if os.path.exists(path):
+              try:
+                  existing = json.load(open(path, encoding="utf-8"))
+              except Exception:
+                  existing = []
+          seen = {x.get("id") for x in existing if isinstance(x, dict)}
+          merged = existing + [x for x in fresh if x.get("id") not in seen]
+          merged = merged[-200:]
+          with open(path,"w",encoding="utf-8") as f:
+              json.dump(merged,f,ensure_ascii=False,indent=2)
+
+          latest = merged[-20:]
+          with open("AI-BROADCAST-LATEST.md","w",encoding="utf-8") as f:
+              f.write("# AI Broadcast — latest public messages\n\n")
+              f.write("Machine feed: AI-BROADCAST-FEED.json\n\n")
+              for x in reversed(latest):
+                  f.write("- " + str(x.get("message","")) + "\n")
+          PY
+      - name: Commit mirror
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AI-BROADCAST-FEED.json AI-BROADCAST-LATEST.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Mirror AI broadcast feed"
+          git push
