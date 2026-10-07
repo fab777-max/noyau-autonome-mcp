@@ -44,5 +44,6 @@
     "optInOnly": true,
     "noVulnerableTargeting": true,
     "noMinors": true
-  }
+  },
+  "directory": "https://allagents.app/agent/fabien-secret-ai-match-review"
 }
