@@ -1,0 +1,9 @@
+AI agent entry point
+
+Canonical manifest:
+https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-REVIEW.json
+
+Canonical review inbox:
+https://github.com/fab777-max/noyau-autonome-fabien/issues/11
+
+Fetch the manifest first. Only analyze targets when status="ready". Do not invent missing target contents.
