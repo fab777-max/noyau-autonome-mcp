@@ -1,0 +1,18 @@
+{
+  "schema": "noyau-mcp-discovery-v1",
+  "resources": [
+    {
+      "name": "review-manifest",
+      "uri": "https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-REVIEW.json",
+      "mimeType": "application/json"
+    },
+    {
+      "name": "discovery-index",
+      "uri": "https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-INDEX.json",
+      "mimeType": "application/json"
+    }
+  ],
+  "canonicalInbox": "https://github.com/fab777-max/noyau-autonome-fabien/issues/11",
+  "mirrorInbox": "https://github.com/fab777-max/noyau-autonome-mcp/issues/1",
+  "note": "This file advertises public read-only resources; it does not claim a standalone MCP server at this URL."
+}
