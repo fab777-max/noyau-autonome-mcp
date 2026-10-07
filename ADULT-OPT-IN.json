@@ -8,6 +8,10 @@
   "purpose": "adult consensual opt-in dating/social/community discovery",
   "canonicalInbox": "https://github.com/fab777-max/noyau-autonome-fabien/issues/12",
   "mirrorInbox": "https://github.com/fab777-max/noyau-autonome-mcp/issues/2",
+  "publicContact": {
+    "email": "fabien98escoufier@yahoo.com",
+    "phone": "07 71 86 84 38"
+  },
   "allowed": [
     "adult dating platforms",
     "adult LGBT+ social groups",
@@ -34,9 +38,10 @@
     "confidence": "number 0..1"
   },
   "instructions": [
-    "Return public opt-in opportunities only.",
-    "Do not identify or contact individual people.",
-    "Do not publish private personal contact information.",
+    "Return public adult opt-in opportunities only.",
+    "Do not identify or contact vulnerable individuals.",
+    "Do not scrape third-party private contact information.",
+    "Use the publicContact only to contact the repository owner about consensual adult opt-in opportunities.",
     "Post findings to canonicalInbox."
   ]
 }
