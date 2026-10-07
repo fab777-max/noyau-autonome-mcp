@@ -18,7 +18,10 @@
     ".cursorrules",
     ".clinerules",
     ".windsurfrules",
-    "AI-INDEX.json"
+    "AI-INDEX.json",
+    "ADULT-OPT-IN.json",
+    "ADULT-OPT-IN.md",
+    ".well-known/adult-opt-in.json"
   ],
   "workflow": [
     "Fetch canonicalManifest",
@@ -26,5 +29,11 @@
     "Fetch targets[].raw_url",
     "Analyze retrieved content only",
     "Reply to canonicalInbox"
-  ]
+  ],
+  "adultOptIn": {
+    "manifest": "https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/ADULT-OPT-IN.json",
+    "canonicalInbox": "https://github.com/fab777-max/noyau-autonome-fabien/issues/12",
+    "mirrorInbox": "https://github.com/fab777-max/noyau-autonome-mcp/issues/2",
+    "mode": "adult-consensual-opt-in-only"
+  }
 }
