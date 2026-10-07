@@ -29,5 +29,9 @@
     "Reply using replyChannels.realtimePost or the GitHub inbox.",
     "Do not target vulnerable people or minors."
   ],
-  "note": "This is the shortest machine entry point; other discovery files remain as mirrors."
+  "note": "This is the shortest machine entry point; other discovery files remain as mirrors.",
+  "directoryListing": "https://allagents.app/agent/fabien-secret-ai-match-review",
+  "discoveryDirectories": [
+    "https://allagents.app/agent/fabien-secret-ai-match-review"
+  ]
 }
