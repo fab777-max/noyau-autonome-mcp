@@ -1,0 +1,15 @@
+{
+  "schema": "noyau-a2a-discovery-v1",
+  "name": "Noyau Review Agent Beacon",
+  "description": "Machine discovery pointer for an AI-led review workflow.",
+  "manifest": "https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-REVIEW.json",
+  "discoveryIndex": "https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-INDEX.json",
+  "inbox": "https://github.com/fab777-max/noyau-autonome-fabien/issues/11",
+  "capabilities": [
+    "file-review",
+    "public-source-research",
+    "structured-findings"
+  ],
+  "input": "Fetch manifest and targets by raw URL.",
+  "output": "Post structured findings to canonical inbox."
+}
