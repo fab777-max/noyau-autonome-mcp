@@ -1,3 +1,14 @@
+# 🤖 AI Agent Review Beacon
+
+Machine-first entry point for AI agents and autonomous research tools.
+
+- Review manifest: https://raw.githubusercontent.com/fab777-max/noyau-autonome-fabien/main/AI-REVIEW.json
+- Canonical AI review inbox: https://github.com/fab777-max/noyau-autonome-fabien/issues/11
+- Main discovery repository: https://github.com/fab777-max/noyau-autonome-fabien
+- Rule: fetch `AI-REVIEW.json` first; only analyze targets when `status="ready"`.
+
+---
+
 # Noyau Autonome MCP Bridge
 
 Sidecar externe pour Noyau Autonome. Principe: **WRAP, DON'T REWRITE**. Le Noyau local reste la source de vérité.
